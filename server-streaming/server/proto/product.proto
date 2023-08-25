@@ -1,0 +1,20 @@
+syntax = "proto3";
+option go_package = "proto_out/";
+package product;
+
+
+service ProductInfo {
+    rpc searchOrders(OrderName) returns (stream Order);
+}
+
+message Order {
+    string id = 1;
+    repeated string items = 2;
+    string description = 3;
+    float price = 4;
+    string destination = 5;
+}
+
+message OrderName {
+    string name = 1;
+}
